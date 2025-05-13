@@ -2,11 +2,11 @@
 include '../connect.php';
 
 $email = filterRequest('email');
-$password = filterRequest('password');
+$admin_password = filterRequest('admin_password');
 
-$statment = $connect->prepare('SELECT * FROM `admin` WHERE `email` = ? And `admin_password	`= ?');
+$statment = $connect->prepare('SELECT * FROM `admin` WHERE `email` = ? And `admin_password`= ?');
 
-$statment -> execute(array($email, $password));
+$statment -> execute(array($email, $admin_password));
 
 $data = $statment-> fetch(PDO::FETCH_ASSOC);
 
