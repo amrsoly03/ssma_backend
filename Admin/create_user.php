@@ -31,7 +31,7 @@ $count = $statment->rowCount();
 
 // insert into degrees for all subjects of the same grade
 $statment = $connect->prepare(
-    'INSERT INTO degrees (`sub_degree`, `s_degree`, `final`, `mid`, `practical`)
+    'INSERT INTO degrees (`subject_degree`, `std_degree`, `final`, `mid`, `practical`)
      SELECT subject_id, ?, 0, 0, 0 FROM subject WHERE sub_grade = ?'
 );
 $statment->execute(array($student_id, $grade));
@@ -39,7 +39,7 @@ $statment->execute(array($student_id, $grade));
 $count = $statment->rowCount();
 
 if ($count > 0) {
-    echo json_encode(array('status' => 'success'));
+    echo json_encode(array('status' => 'success', 'message' => 'User created successfully'));
 } else {
     echo json_encode(array('status' => 'failed'));
 }

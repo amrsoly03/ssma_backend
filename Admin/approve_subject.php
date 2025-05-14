@@ -2,7 +2,7 @@
 include '../connect.php';
 $as_id = filterRequest('as_id');
 
-$statment = $connect->prepare("UPDATE approvment_subject SET 	is_approved = true WHERE as_id = ? ");
+$statment = $connect->prepare("UPDATE approvment_subject SET is_approved = true WHERE as_id = ? ");
 
 $statment->execute(array($as_id));
 
