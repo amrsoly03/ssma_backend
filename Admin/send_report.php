@@ -13,7 +13,7 @@ $count = $statment->rowCount();
 if ($count > 0) {
     echo json_encode(["status" => "success", "message" => "Report sent successfully"]);  
 } else {
-    echo json_encode(["status" => "error", "message" => "Failed to sent report"]);
+    echo json_encode(["status" => "error", "message" => "Failed to send report"]);
 }
 ?>
 

@@ -30,7 +30,7 @@ $update->execute([$final, $mid, $practical, $subject_degree, $std_degree]);
 $count = $update->rowCount();
 
 if ($count > 0) {
-    echo json_encode(["status" => "success", "message" => "Degree updated successfully"]);
+    echo json_encode(["status" => "success", "message" => "Degrees updated successfully"]);
 } else {
     echo json_encode(["status" => "failed", "message" => "No changes made or update failed"]);
 }

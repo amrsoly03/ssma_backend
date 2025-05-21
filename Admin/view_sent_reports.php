@@ -17,5 +17,5 @@ $count = $statment->rowCount();
 if ($count > 0) {
     echo json_encode(array('status' => 'success', 'data' => $data), JSON_PRETTY_PRINT);
 } else {
-    echo json_encode(array('status' => 'failed'));
+    echo json_encode(array('status' => 'failed', 'message' => 'no reports found'));
 }
