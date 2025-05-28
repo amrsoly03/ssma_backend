@@ -2,14 +2,15 @@
 include '../connect.php';
 $name = filterRequest('name');
 $description = filterRequest('description');
+$price = filterRequest('price');
 $image = userImageUpload('image', 'activities_images');
 
 if ($image != 'failed') {
     // create a new activity
     $statment = $connect->prepare(
-        query: 'INSERT INTO `school_activities`(`name`, `description`, `image`) VALUES (?,?,?)'
+        query: 'INSERT INTO `school_activities`(`name`, `description`, `price`, `image`) VALUES (?,?,?,?)'
     );
-    $statment->execute(array($name, $description, $image));
+    $statment->execute(array($name, $description, $price, $image));
     $count = $statment->rowCount();
 
 
