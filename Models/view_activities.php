@@ -2,10 +2,7 @@
 include '../connect.php';
 
 // Select all columns except 'type'
-$statement = $connect->prepare("
-    SELECT activity_id, name, description, image 
-    FROM school_activities
-");
+$statement = $connect->prepare("SELECT * FROM school_activities");
 
 $statement->execute();
 $data = $statement->fetchAll(PDO::FETCH_ASSOC);
