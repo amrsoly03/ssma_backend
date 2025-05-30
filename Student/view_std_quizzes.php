@@ -3,7 +3,13 @@ include '../connect.php';
 $student_id = filterRequest('student_id');
 
 $statement = $connect->prepare(
-    "SELECT quiz.*, subject.name AS sub_quiz_name
+    "SELECT quiz.*, 
+            subject.name AS sub_quiz_name,
+            (
+                SELECT COUNT(*) 
+                FROM question 
+                WHERE question.question_quiz = quiz.quiz_id
+            ) AS num_of_questions
      FROM quiz
      JOIN subject ON quiz.sub_quiz = subject.subject_id
      JOIN student ON student.grade = subject.sub_grade

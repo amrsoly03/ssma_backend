@@ -1,9 +1,12 @@
 <?php
 include '../connect.php';
 
+$product_category = filterRequest('product_category');
+
+
 // Select all products from the database
-$statement = $connect->prepare('SELECT * FROM `product`');
-$statement->execute();
+$statement = $connect->prepare('SELECT * FROM `product` WHERE `product_category` = ?');
+$statement->execute(array($product_category));
 
 $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 $count = $statement->rowCount();
