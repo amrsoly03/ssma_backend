@@ -12,7 +12,7 @@ $statement = $connect->prepare(
 $success = $statement->execute(array($increase_by, $parent_id));
 
 if ($success && $statement->rowCount() > 0) {
-    echo json_encode(array('status' => 'success', 'message' => 'Coins updated successfully'));
+    echo json_encode(array('status' => 'success', 'message' => 'Coins charged successfully'));
 } else {
     echo json_encode(array('status' => 'failed', 'message' => 'Update failed or parent not found'));
 }

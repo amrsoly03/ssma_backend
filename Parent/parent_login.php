@@ -2,7 +2,7 @@
 include '../connect.php'; 
 
 $student_id = filterRequest('student_id');
-$parent_password = filterRequest('password');
+$parent_password = filterRequest('parent_password');
 
 $statement = $connect->prepare(
     "SELECT parent.*, student.student_id, student.s_name

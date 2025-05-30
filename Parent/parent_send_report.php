@@ -5,7 +5,7 @@ $content= filterRequest('content');
 
 // create a new report
 $statment = $connect->prepare(
-    'INSERT INTO `report`(`std_report`, `content`, `from_admin`) VALUES (?,?, 0)'
+    'INSERT INTO `report`(`std_report`, `content`, `from_admin`) VALUES (?,?, false)'
 );
 $statment->execute(array($std_report, $content));
 // check if the query was successful    
