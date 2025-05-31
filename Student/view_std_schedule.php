@@ -1,9 +1,16 @@
 <?php 
 include '../connect.php';
-$grade_id = filterRequest('grade_id');
 
-$statment = $connect->prepare('SELECT `schedule_image` FROM `grade` WHERE `grade_id` = ?');
-$statment->execute(array($grade_id));
+$student_id = filterRequest('student_id');
+
+$statment = $connect->prepare(
+    'SELECT grade.schedule_image 
+     FROM student 
+     JOIN grade ON student.grade = grade.grade_id 
+     WHERE student.student_id = ?'
+);
+
+$statment->execute(array($student_id));
 
 $data = $statment->fetch(PDO::FETCH_ASSOC);
 $count = $statment->rowCount();
